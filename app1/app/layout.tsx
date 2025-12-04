@@ -22,12 +22,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <GameProvider>
-          <div className="flex min-h-screen bg-gray-50 text-gray-900">
+          <div className="flex min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50 text-gray-900">
             <Sidebar />
             <div className="flex-1 ml-64">
               <Navbar />
               <GameWrapper>
-                {children}
+                <main className="pt-20 pb-12 px-8">
+                  {children}
+                </main>
               </GameWrapper>
             </div>
           </div>

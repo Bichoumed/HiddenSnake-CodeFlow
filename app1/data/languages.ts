@@ -446,7 +446,10 @@ export const languages: Language[] = [
             }
         ],
         youtubeLinks: [
-            { title: "Python for Beginners", url: "https://www.youtube.com/watch?v=_uQrJ0TkZlc" },
+            { title: "Documentation Officielle Python", url: "https://docs.python.org/fr/3/" },
+            { title: "Tutoriel Python (YouTube)", url: "https://www.youtube.com/watch?v=_uQrJ0TkZlc" },
+            { title: "Apprendre avec Real Python", url: "https://realpython.com/" },
+            { title: "Cours Complet FreeCodeCamp", url: "https://www.youtube.com/watch?v=rfscVS0vtbw" },
         ],
     },
     {
