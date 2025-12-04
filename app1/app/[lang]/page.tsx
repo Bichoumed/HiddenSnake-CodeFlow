@@ -59,15 +59,7 @@ export default function LanguagePage({ params }: { params: Promise<{ lang: strin
                     {language.description}
                 </p>
 
-                {language.id !== "python" && (
-                    <button
-                        onClick={handleStartLearning}
-                        className="group relative inline-flex items-center justify-center px-8 py-4 font-semibold text-white transition-all duration-200 bg-gray-900 rounded-full hover:bg-gray-800 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
-                    >
-                        <span className="mr-2">Start Learning</span>
-                        <Play size={18} className="fill-current" />
-                    </button>
-                )}
+
             </motion.div>
 
             <div id="content-start" className="space-y-12">
@@ -78,9 +70,7 @@ export default function LanguagePage({ params }: { params: Promise<{ lang: strin
                                 <div className="border-b border-gray-200 pb-4">
                                     <h2 className="text-3xl font-bold text-gray-900 mb-2">{module.title}</h2>
                                     <p className="text-lg text-gray-600">{module.description}</p>
-                                    <div className="mt-4 p-4 bg-blue-50 rounded-lg text-blue-800 text-sm">
-                                        <strong>Cas d'usage :</strong> {module.useCase}
-                                    </div>
+
                                 </div>
 
                                 <div className="grid gap-8">
@@ -134,7 +124,7 @@ export default function LanguagePage({ params }: { params: Promise<{ lang: strin
                                                     }}
                                                     className="px-6 py-2 rounded-lg font-semibold text-white transition-colors bg-green-600 hover:bg-green-700"
                                                 >
-                                                    Run python
+                                                    Run {language.id === 'python' ? 'Python' : language.name.replace('Learn ', '')}
                                                 </button>
                                             </div>
                                         </div>
@@ -206,6 +196,6 @@ export default function LanguagePage({ params }: { params: Promise<{ lang: strin
                     </div>
                 </section>
             </div>
-        </div>
+        </div >
     );
 }
