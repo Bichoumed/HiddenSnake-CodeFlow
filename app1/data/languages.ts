@@ -518,6 +518,7 @@ export const languages: Language[] = [
             {
                 title: "2. Les Opérateurs",
                 description: "Opérateurs arithmétiques, logiques et de comparaison.",
+                useCase: "Calculer des scores, vérifier des conditions de jeu ou comparer des valeurs.",
                 examples: [
                     {
                         title: "Arithmétique",
@@ -803,6 +804,7 @@ export const languages: Language[] = [
             {
                 title: "2. Les Opérateurs",
                 description: "Opérateurs arithmétiques, logiques et de comparaison.",
+                useCase: "Calculer des scores, vérifier des conditions de jeu ou comparer des valeurs.",
                 examples: [
                     {
                         title: "Arithmétique",
