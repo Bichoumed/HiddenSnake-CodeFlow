@@ -14,6 +14,7 @@ Cette approche permet d’allier exploration pédagogique et surprise ludique po
 ## Structure du Projet
 
 
+
 app1/
 ├── app/                          # Dossier principal Next.js (App Router)
 │   ├── [lang]/                   # Routes dynamiques pour chaque langage
