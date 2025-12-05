@@ -15,51 +15,52 @@ Cette approche permet d’allier exploration pédagogique et surprise ludique po
 
 
 
+```text
 app1/
-├── app/                          # Dossier principal Next.js (App Router)
-│   ├── [lang]/                   # Routes dynamiques pour chaque langage
-│   │   └── page.tsx              # Page de détail d'un langage
-│   ├── layout.tsx                # Layout principal de l'application
-│   ├── page.tsx                  # Page d'accueil (redirection)
-│   └── globals.css               # Styles CSS globaux
+├── app/                        # Dossier principal Next.js (App Router)
+│   ├── [lang]/                 # Routes dynamiques pour chaque langage
+│   │   └── page.tsx            # Page de détail d'un langage
+│   ├── layout.tsx              # Layout principal de l'application
+│   ├── page.tsx                # Page d'accueil (redirection)
+│   └── globals.css             # Styles CSS globaux
 │
-├── components/                   # Composants React réutilisables
-│   ├── Layout/                   # Composants de mise en page
-│   │   ├── Sidebar.tsx           # Barre latérale de navigation (responsive)
-│   │   ├── Navbar.tsx            # Barre de navigation supérieure
-│   │   └── GameWrapper.tsx       # Wrapper pour le jeu Snake
-│   ├── SnakeGame/                # Composant du jeu Snake
-│   │   └── SnakeGame.tsx         # Logique et rendu du jeu
-│   └── icons/                    # Icônes personnalisées pour chaque langage
-│       ├── CIcon.tsx             # Icône C
-│       ├── CppIcon.tsx           # Icône C++
-│       ├── PythonIcon.tsx        # Icône Python
-│       ├── JavaIcon.tsx          # Icône Java
-│       ├── JsIcon.tsx            # Icône JavaScript
-│       └── GoIcon.tsx            # Icône Go
+├── components/                 # Composants React réutilisables
+│   ├── Layout/                 # Composants de mise en page
+│   │   ├── Sidebar.tsx         # Barre latérale de navigation (responsive)
+│   │   ├── Navbar.tsx          # Barre de navigation supérieure
+│   │   └── GameWrapper.tsx     # Wrapper pour le jeu Snake
+│   ├── SnakeGame/              # Composant du jeu Snake
+│   │   └── SnakeGame.tsx       # Logique et rendu du jeu
+│   └── icons/                  # Icônes personnalisées pour chaque langage
+│       ├── CIcon.tsx           # Icône C
+│       ├── CppIcon.tsx         # Icône C++
+│       ├── PythonIcon.tsx      # Icône Python
+│       ├── JavaIcon.tsx        # Icône Java
+│       ├── JsIcon.tsx          # Icône JavaScript
+│       └── GoIcon.tsx          # Icône Go
 │
-├── context/                      # Contextes React (gestion d'état global)
-│   ├── GameContext.tsx           # État du jeu Snake
-│   └── SidebarContext.tsx        # État de la sidebar (mobile/desktop)
+├── context/                    # Contextes React (gestion d'état global)
+│   ├── GameContext.tsx         # État du jeu Snake
+│   └── SidebarContext.tsx      # État de la sidebar (mobile/desktop)
 │
-├── data/                         # Données de l'application
-│   └── languages.ts              # Contenu des cours pour chaque langage
+├── data/                       # Données de l'application
+│   └── languages.ts            # Contenu des cours pour chaque langage
 │
-├── lib/                          # Utilitaires
-│   └── utils.ts                  # Fonctions helper (cn pour classes CSS)
+├── lib/                        # Utilitaires
+│   └── utils.ts                # Fonctions helper (cn pour classes CSS)
 │
-├── public/                       # Fichiers statiques publics
-│   ├── file.svg                  # Icônes SVG
+├── public/                     # Fichiers statiques publics
+│   ├── file.svg                # Icônes SVG
 │   ├── globe.svg
 │   ├── next.svg
 │   ├── vercel.svg
 │   └── window.svg
 │
-├── package.json                  # Dépendances du projet
-├── tsconfig.json                 # Configuration TypeScript
-├── tailwind.config.js            # Configuration Tailwind CSS
-├── next.config.ts                # Configuration Next.js
-└── README.md                     # Documentation du projet (ce fichier)
+├── package.json                # Dépendances du projet
+├── tsconfig.json               # Configuration TypeScript
+├── tailwind.config.js          # Configuration Tailwind CSS
+├── next.config.ts              # Configuration Next.js
+└── README.md                   # Documentation du projet
 
 
 ---
