@@ -6,7 +6,7 @@ DevLearn est une idée de plateforme web statique destinée à présenter les la
 Le site sert principalement de vitrine avec des contenus et modules fictifs, mais il intègre une fonctionnalité cachée : un jeu Snake interactif, activable via une méthode secrète.
 Cette approche permet d’allier exploration pédagogique et surprise ludique pour l’utilisateur, tout en gardant le site simple et statique.
 
-
+Le lien :https://hidden-snake-code-flow-ne26.vercel.app
 
 ---
 
@@ -84,6 +84,8 @@ Chaque langage inclut 5 modules couvrant :
 
 
  Repository GitHub :  Bichoumed/HiddenSnake-CodeFlow
+
+
 
 
 
