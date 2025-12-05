@@ -3,16 +3,28 @@
 import { useEffect, useRef, useState } from "react";
 import { useGame } from "@/context/GameContext";
 import { motion, AnimatePresence } from "framer-motion";
+import { ArrowUp, ArrowDown, ArrowLeft, ArrowRight } from "lucide-react";
 
 export function SnakeGame() {
     const { endGame } = useGame();
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [score, setScore] = useState(0);
     const [gameOver, setGameOver] = useState(false);
+    const directionRef = useRef({ dx: 1, dy: 0 });
 
     // Game constants
     const GRID_SIZE = 20;
     const SPEED = 100;
+
+    // Direction change function
+    const changeDirection = (newDx: number, newDy: number) => {
+        const { dx, dy } = directionRef.current;
+        // Prevent reversing direction
+        if ((newDx === 1 && dx !== -1) || (newDx === -1 && dx !== 1) ||
+            (newDy === 1 && dy !== -1) || (newDy === -1 && dy !== 1)) {
+            directionRef.current = { dx: newDx, dy: newDy };
+        }
+    };
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -22,13 +34,15 @@ export function SnakeGame() {
         if (!ctx) return;
 
         // Set canvas size to window size
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        const resizeCanvas = () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        };
+        resizeCanvas();
+        window.addEventListener("resize", resizeCanvas);
 
         let snake = [{ x: 10, y: 10 }];
         let food = { x: 15, y: 15 };
-        let dx = 1;
-        let dy = 0;
         let gameLoop: NodeJS.Timeout;
 
         const draw = () => {
@@ -56,6 +70,7 @@ export function SnakeGame() {
         };
 
         const update = () => {
+            const { dx, dy } = directionRef.current;
             const head = { x: snake[0].x + dx, y: snake[0].y + dy };
 
             // Wall collision
@@ -99,16 +114,16 @@ export function SnakeGame() {
         const handleKeydown = (e: KeyboardEvent) => {
             switch (e.key) {
                 case "ArrowUp":
-                    if (dy !== 1) { dx = 0; dy = -1; }
+                    changeDirection(0, -1);
                     break;
                 case "ArrowDown":
-                    if (dy !== -1) { dx = 0; dy = 1; }
+                    changeDirection(0, 1);
                     break;
                 case "ArrowLeft":
-                    if (dx !== 1) { dx = -1; dy = 0; }
+                    changeDirection(-1, 0);
                     break;
                 case "ArrowRight":
-                    if (dx !== -1) { dx = 1; dy = 0; }
+                    changeDirection(1, 0);
                     break;
             }
         };
@@ -119,6 +134,7 @@ export function SnakeGame() {
         return () => {
             clearInterval(gameLoop);
             window.removeEventListener("keydown", handleKeydown);
+            window.removeEventListener("resize", resizeCanvas);
         };
     }, []);
 
@@ -126,25 +142,91 @@ export function SnakeGame() {
         <div className="relative w-full h-full">
             <canvas ref={canvasRef} className="block" />
 
-            <div className="absolute top-4 left-4 text-2xl font-bold text-gray-300">
-                Score: {score}
+            {/* Score Display - Plus grand et plus attirant */}
+            <div className="absolute top-4 sm:top-8 left-4 sm:left-8 bg-gradient-to-r from-blue-500 via-blue-600 to-green-500 text-white px-4 sm:px-8 py-2 sm:py-4 rounded-xl sm:rounded-2xl shadow-2xl shadow-blue-500/30">
+                <div className="text-xs sm:text-sm font-semibold uppercase tracking-wider opacity-90">Score</div>
+                <div className="text-3xl sm:text-5xl font-bold">{score}</div>
             </div>
+
+            {/* On-Screen Controls - Contrôles tactiles pour mobile */}
+            {!gameOver && (
+                <div className="absolute bottom-8 right-8 flex flex-col items-center gap-2">
+                    {/* Up Arrow */}
+                    <motion.button
+                        whileTap={{ scale: 0.9 }}
+                        onClick={() => changeDirection(0, -1)}
+                        className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl shadow-lg flex items-center justify-center transition-all active:scale-95"
+                    >
+                        <ArrowUp size={32} />
+                    </motion.button>
+
+                    {/* Left, Down, Right Arrows */}
+                    <div className="flex gap-2">
+                        <motion.button
+                            whileTap={{ scale: 0.9 }}
+                            onClick={() => changeDirection(-1, 0)}
+                            className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl shadow-lg flex items-center justify-center transition-all active:scale-95"
+                        >
+                            <ArrowLeft size={32} />
+                        </motion.button>
+                        <motion.button
+                            whileTap={{ scale: 0.9 }}
+                            onClick={() => changeDirection(0, 1)}
+                            className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl shadow-lg flex items-center justify-center transition-all active:scale-95"
+                        >
+                            <ArrowDown size={32} />
+                        </motion.button>
+                        <motion.button
+                            whileTap={{ scale: 0.9 }}
+                            onClick={() => changeDirection(1, 0)}
+                            className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-xl shadow-lg flex items-center justify-center transition-all active:scale-95"
+                        >
+                            <ArrowRight size={32} />
+                        </motion.button>
+                    </div>
+                </div>
+            )}
 
             <AnimatePresence>
                 {gameOver && (
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0 }}
-                        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-black/80 text-white px-6 py-3 rounded-full shadow-2xl"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
+                        transition={{ type: "spring", duration: 0.5 }}
+                        className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
                     >
-                        <p className="text-sm font-mono">Don't tell anyone about this.</p>
-                        <button
-                            onClick={endGame}
-                            className="mt-2 text-xs text-gray-400 hover:text-white underline w-full text-center block"
-                        >
-                            Close
-                        </button>
+                        <div className="bg-gradient-to-br from-gray-900 to-gray-800 text-white px-8 sm:px-16 py-8 sm:py-12 rounded-3xl shadow-2xl border-2 border-gray-700 text-center max-w-2xl w-full">
+                            {/* Game Over Title - Très grand et attirant */}
+                            <motion.h1
+                                initial={{ y: -20 }}
+                                animate={{ y: 0 }}
+                                className="text-4xl sm:text-7xl font-black mb-4 sm:mb-6 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 bg-clip-text text-transparent"
+                            >
+                                GAME OVER
+                            </motion.h1>
+
+                            {/* Final Score - Plus grand */}
+                            <div className="mb-6 sm:mb-8">
+                                <p className="text-lg sm:text-2xl text-gray-400 mb-2">Score Final</p>
+                                <p className="text-4xl sm:text-6xl font-bold bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
+                                    {score}
+                                </p>
+                            </div>
+
+                            {/* Secret Message */}
+                            <p className="text-sm sm:text-lg font-mono text-gray-300 mb-6 sm:mb-8 italic">
+                                "Don't tell anyone about this."
+                            </p>
+
+                            {/* Close Button - Plus grand et attirant */}
+                            <button
+                                onClick={endGame}
+                                className="px-8 sm:px-10 py-3 sm:py-4 bg-gradient-to-r from-blue-500 via-blue-600 to-green-500 hover:from-blue-600 hover:via-blue-700 hover:to-green-600 text-white font-bold text-lg sm:text-xl rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-105 w-full sm:w-auto"
+                            >
+                                Fermer
+                            </button>
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>
