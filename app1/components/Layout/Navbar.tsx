@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import { useGame } from "@/context/GameContext";
-import { BookOpen, Sparkles } from "lucide-react";
+import { BookOpen, Sparkles, Home } from "lucide-react";
+import Link from "next/link";
 
 export function Navbar() {
     const { isGameActive } = useGame();
@@ -15,24 +16,24 @@ export function Navbar() {
                 y: isGameActive ? -100 : 0
             }}
             transition={{ duration: 1.5 }}
-            className="h-16 bg-white/95 backdrop-blur-xl border-b border-gray-200/60 shadow-sm fixed top-0 right-0 left-64 z-10"
+            className="h-16 bg-gradient-to-r from-blue-500 via-blue-600 to-green-500 shadow-lg shadow-blue-500/30 fixed top-0 right-0 left-64 z-10"
         >
             <div className="h-full px-8 flex items-center justify-between">
-                <div className="flex items-center space-x-3">
-                    <motion.div 
-                        className="p-2 rounded-xl bg-gradient-to-br from-blue-500 via-blue-600 to-green-500 shadow-lg shadow-blue-500/30"
+                <Link href="/" className="flex items-center space-x-3 group cursor-pointer">
+                    <motion.div
+                        className="p-2 rounded-xl bg-white/20 backdrop-blur-sm shadow-lg group-hover:bg-white/30 transition-all"
                         whileHover={{ scale: 1.05, rotate: 5 }}
                         transition={{ type: "spring", stiffness: 400 }}
                     >
-                        <BookOpen size={20} className="text-white" />
+                        <Home size={20} className="text-white" />
                     </motion.div>
                     <div className="flex items-center space-x-2">
-                        <h1 className="text-xl font-bold bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 bg-clip-text text-transparent">
+                        <h1 className="text-xl font-bold text-white group-hover:text-white/90 transition-colors">
                             Interactive Documentation
                         </h1>
-                        <Sparkles size={16} className="text-blue-500 animate-pulse" />
+                        <Sparkles size={16} className="text-white/90 animate-pulse" />
                     </div>
-                </div>
+                </Link>
             </div>
         </motion.header>
     );
