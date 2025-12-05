@@ -22,8 +22,8 @@ export function Sidebar() {
             transition={{ duration: 1.5 }}
             className="w-64 bg-gradient-to-b from-gray-900 via-gray-900 to-gray-950 text-white h-screen fixed left-0 top-0 overflow-y-auto border-r border-gray-800/50 z-20 shadow-2xl"
         >
-            <div className="p-6">
-                <motion.div 
+            <div className="p-6 pb-24">
+                <motion.div
                     className="flex items-center space-x-3 mb-8 pb-6 border-b border-gray-800/50"
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}

@@ -50,6 +50,18 @@ export function SnakeGame() {
             ctx.fillStyle = "white";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+            // Draw Barriers/Walls - Barrières visibles
+            const borderWidth = 8;
+            ctx.fillStyle = "#374151"; // gray-700 - dark gray
+            // Top border
+            ctx.fillRect(0, 0, canvas.width, borderWidth);
+            // Bottom border
+            ctx.fillRect(0, canvas.height - borderWidth, canvas.width, borderWidth);
+            // Left border
+            ctx.fillRect(0, 0, borderWidth, canvas.height);
+            // Right border
+            ctx.fillRect(canvas.width - borderWidth, 0, borderWidth, canvas.height);
+
             // Draw Snake
             ctx.fillStyle = "#4ade80"; // green-400
             snake.forEach((segment) => {
