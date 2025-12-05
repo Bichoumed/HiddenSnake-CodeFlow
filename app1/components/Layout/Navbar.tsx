@@ -15,7 +15,7 @@ export function Navbar() {
                 y: isGameActive ? -100 : 0
             }}
             transition={{ duration: 1.5 }}
-            className="h-16 bg-white/80 backdrop-blur-xl border-b border-gray-200/60 shadow-sm fixed top-0 right-0 left-64 z-10"
+            className="h-16 bg-white/95 backdrop-blur-xl border-b border-gray-200/60 shadow-sm fixed top-0 right-0 left-64 z-10"
         >
             <div className="h-full px-8 flex items-center justify-between">
                 <div className="flex items-center space-x-3">

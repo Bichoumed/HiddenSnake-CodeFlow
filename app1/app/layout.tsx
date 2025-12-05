@@ -27,9 +27,7 @@ export default function RootLayout({
             <div className="flex-1 ml-64">
               <Navbar />
               <GameWrapper>
-                <main className="pt-20 pb-12 px-8">
-                  {children}
-                </main>
+                {children}
               </GameWrapper>
             </div>
           </div>

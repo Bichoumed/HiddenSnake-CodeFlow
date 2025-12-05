@@ -24,6 +24,7 @@ export interface Language {
     learningModules?: {
         title: string;
         description: string;
+        useCase: string;
         examples: {
             title: string;
             description?: string;
@@ -45,12 +46,16 @@ export const languages: Language[] = [
             { title: "Pointers", content: "C allows direct memory manipulation using pointers." },
         ],
         youtubeLinks: [
-            { title: "C Programming for Beginners", url: "https://www.youtube.com/watch?v=KJgsSFOSQv0" },
+            { title: "Documentation Officielle C", url: "https://devdocs.io/c/" },
+            { title: "Tutoriel C pour Débutants", url: "https://www.youtube.com/watch?v=KJgsSFOSQv0" },
+            { title: "Apprendre C avec FreeCodeCamp", url: "https://www.youtube.com/watch?v=KJgsSFOSQv0" },
+            { title: "Cours Complet C - Programmation", url: "https://www.youtube.com/watch?v=87SH2Cn0s9A" },
         ],
         learningModules: [
             {
                 title: "1. Variables & Types de Données",
                 description: "Les variables sont des espaces mémoire nommés pour stocker des données. En C, vous devez déclarer le type explicitement.",
+                useCase: "Stocker le nom d'un utilisateur, son âge ou le score d'un jeu.",
                 examples: [
                     {
                         title: "Créer des variables",
@@ -76,6 +81,7 @@ export const languages: Language[] = [
             {
                 title: "2. Les Opérateurs",
                 description: "Outils pour effectuer des calculs, comparer des valeurs ou combiner des conditions.",
+                useCase: "Calculer des scores, vérifier des conditions de jeu ou comparer des valeurs.",
                 examples: [
                     {
                         title: "Arithmétique",
@@ -100,6 +106,7 @@ export const languages: Language[] = [
             {
                 title: "3. Structures de Contrôle",
                 description: "Contrôlez le flux d'exécution avec des conditions et des boucles.",
+                useCase: "Créer des boucles de jeu, gérer les conditions de victoire/défaite.",
                 examples: [
                     {
                         title: "Conditions (If/Else)",
@@ -124,6 +131,7 @@ export const languages: Language[] = [
             {
                 title: "4. Structures de Données",
                 description: "Organisez vos données avec des tableaux et des structures.",
+                useCase: "Stocker les positions du serpent, gérer les listes de scores.",
                 examples: [
                     {
                         title: "Tableaux",
@@ -148,6 +156,7 @@ export const languages: Language[] = [
             {
                 title: "5. Fonctions",
                 description: "Blocs de code réutilisables pour éviter la répétition.",
+                useCase: "Créer des fonctions pour déplacer le serpent, vérifier les collisions.",
                 examples: [
                     {
                         title: "Définir une fonction",
@@ -181,12 +190,16 @@ export const languages: Language[] = [
             { title: "STL", content: "The Standard Template Library provides common data structures." },
         ],
         youtubeLinks: [
-            { title: "C++ Tutorial for Beginners", url: "https://www.youtube.com/watch?v=vLnPwxZdW4Y" },
+            { title: "Documentation Officielle C++", url: "https://devdocs.io/cpp/" },
+            { title: "Tutoriel C++ pour Débutants", url: "https://www.youtube.com/watch?v=vLnPwxZdW4Y" },
+            { title: "Apprendre C++ avec FreeCodeCamp", url: "https://www.youtube.com/watch?v=8jLOx1hD3_o" },
+            { title: "Cours Complet C++ - Programmation", url: "https://www.youtube.com/watch?v=ZzaPdXTrSb8" },
         ],
         learningModules: [
             {
                 title: "1. Variables & Types de Données",
                 description: "Comme en C, mais avec des types plus puissants comme string.",
+                useCase: "Stocker le nom d'un utilisateur, son âge ou le score d'un jeu.",
                 examples: [
                     {
                         title: "Créer des variables",
@@ -211,6 +224,7 @@ export const languages: Language[] = [
             {
                 title: "2. Les Opérateurs",
                 description: "Identiques au C avec plus de fonctionnalités (surcharge d'opérateurs).",
+                useCase: "Calculer des scores, vérifier des conditions de jeu ou comparer des valeurs.",
                 examples: [
                     {
                         title: "Arithmétique",
@@ -235,6 +249,7 @@ export const languages: Language[] = [
             {
                 title: "3. Structures de Contrôle",
                 description: "Conditions et boucles pour contrôler le programme.",
+                useCase: "Créer des boucles de jeu, gérer les conditions de victoire/défaite.",
                 examples: [
                     {
                         title: "Conditions",
@@ -259,6 +274,7 @@ export const languages: Language[] = [
             {
                 title: "4. Structures de Données",
                 description: "Utilisez vector, map et classes personnalisées.",
+                useCase: "Stocker les positions du serpent, gérer les listes de scores.",
                 examples: [
                     {
                         title: "Vector (tableau dynamique)",
@@ -283,6 +299,7 @@ export const languages: Language[] = [
             {
                 title: "5. Fonctions",
                 description: "Fonctions classiques + méthodes dans les classes.",
+                useCase: "Créer des fonctions pour déplacer le serpent, vérifier les collisions.",
                 examples: [
                     {
                         title: "Fonction simple",
@@ -322,6 +339,7 @@ export const languages: Language[] = [
             {
                 title: "1. Variables & Types de Données",
                 description: "Les variables sont comme des boîtes étiquetées où l'on range des informations. Python devine automatiquement le type de ce que vous y mettez (nombre, texte, etc.).",
+                useCase: "Stocker le nom d'un utilisateur, son âge ou le score d'un jeu.",
                 examples: [
                     {
                         title: "Créer des variables",
@@ -347,6 +365,7 @@ export const languages: Language[] = [
             {
                 title: "2. Les Opérateurs",
                 description: "Les outils pour manipuler vos données : additionner, comparer, ou vérifier des conditions.",
+                useCase: "Calculer des scores, vérifier des conditions de jeu ou comparer des valeurs.",
                 examples: [
                     {
                         title: "Arithmétique",
@@ -372,6 +391,7 @@ export const languages: Language[] = [
             {
                 title: "3. Structures de Contrôle",
                 description: "Dirigez le flux de votre programme. 'Si' ceci arrive, fais cela. 'Tant que' c'est vrai, continue.",
+                useCase: "Créer des boucles de jeu, gérer les conditions de victoire/défaite.",
                 examples: [
                     {
                         title: "Conditions (If/Else)",
@@ -397,6 +417,7 @@ export const languages: Language[] = [
             {
                 title: "4. Structures de Données",
                 description: "Organisez vos données efficacement avec des listes (ordonnées) ou des dictionnaires (clé-valeur).",
+                useCase: "Stocker les positions du serpent, gérer les listes de scores.",
                 examples: [
                     {
                         title: "Listes",
@@ -422,6 +443,7 @@ export const languages: Language[] = [
             {
                 title: "5. Fonctions",
                 description: "Des blocs de code réutilisables. Au lieu de réécrire le même code, donnez-lui un nom et appelez-le.",
+                useCase: "Créer des fonctions pour déplacer le serpent, vérifier les collisions.",
                 examples: [
                     {
                         title: "Définir une fonction",
@@ -462,12 +484,16 @@ export const languages: Language[] = [
             { title: "OOP", content: "Everything in Java is an object." },
         ],
         youtubeLinks: [
-            { title: "Java Tutorial for Beginners", url: "https://www.youtube.com/watch?v=eIrMbAQSU34" },
+            { title: "Documentation Officielle Java", url: "https://docs.oracle.com/javase/tutorial/" },
+            { title: "Tutoriel Java pour Débutants", url: "https://www.youtube.com/watch?v=eIrMbAQSU34" },
+            { title: "Apprendre Java avec FreeCodeCamp", url: "https://www.youtube.com/watch?v=GoXwIVyNvX0" },
+            { title: "Cours Complet Java - Programmation", url: "https://www.youtube.com/watch?v=grEKMHGYyns" },
         ],
         learningModules: [
             {
                 title: "1. Variables & Types de Données",
                 description: "Java est fortement typé. Chaque variable doit avoir un type déclaré.",
+                useCase: "Stocker le nom d'un utilisateur, son âge ou le score d'un jeu.",
                 examples: [
                     {
                         title: "Créer des variables",
@@ -516,6 +542,7 @@ export const languages: Language[] = [
             {
                 title: "3. Structures de Contrôle",
                 description: "Contrôle du flux avec if, switch, for, while.",
+                useCase: "Créer des boucles de jeu, gérer les conditions de victoire/défaite.",
                 examples: [
                     {
                         title: "Conditions",
@@ -540,6 +567,7 @@ export const languages: Language[] = [
             {
                 title: "4. Structures de Données",
                 description: "ArrayList, HashMap et classes personnalisées.",
+                useCase: "Stocker les positions du serpent, gérer les listes de scores.",
                 examples: [
                     {
                         title: "ArrayList",
@@ -564,6 +592,7 @@ export const languages: Language[] = [
             {
                 title: "5. Fonctions (Méthodes)",
                 description: "Méthodes statiques ou d'instance dans des classes.",
+                useCase: "Créer des fonctions pour déplacer le serpent, vérifier les collisions.",
                 examples: [
                     {
                         title: "Méthode simple",
@@ -597,12 +626,16 @@ export const languages: Language[] = [
             { title: "Async", content: "Promises and async/await handle asynchronous operations." },
         ],
         youtubeLinks: [
-            { title: "JavaScript Tutorial for Beginners", url: "https://www.youtube.com/watch?v=W6NZfCO5SIk" },
+            { title: "Documentation Officielle JavaScript", url: "https://developer.mozilla.org/fr/docs/Web/JavaScript" },
+            { title: "Tutoriel JavaScript pour Débutants", url: "https://www.youtube.com/watch?v=W6NZfCO5SIk" },
+            { title: "Apprendre JavaScript avec FreeCodeCamp", url: "https://www.youtube.com/watch?v=jS4aFq5-91M" },
+            { title: "Cours Complet JavaScript - Programmation", url: "https://www.youtube.com/watch?v=PkZNo7MFNFg" },
         ],
         learningModules: [
             {
                 title: "1. Variables & Types de Données",
                 description: "JavaScript est dynamiquement typé. Utilisez let, const ou var.",
+                useCase: "Stocker le nom d'un utilisateur, son âge ou le score d'un jeu.",
                 examples: [
                     {
                         title: "Créer des variables",
@@ -627,6 +660,7 @@ export const languages: Language[] = [
             {
                 title: "2. Les Opérateurs",
                 description: "Opérateurs classiques + quelques spécificités JS.",
+                useCase: "Calculer des scores, vérifier des conditions de jeu ou comparer des valeurs.",
                 examples: [
                     {
                         title: "Arithmétique",
@@ -651,6 +685,7 @@ export const languages: Language[] = [
             {
                 title: "3. Structures de Contrôle",
                 description: "Conditions, boucles et switch.",
+                useCase: "Créer des boucles de jeu, gérer les conditions de victoire/défaite.",
                 examples: [
                     {
                         title: "Conditions",
@@ -675,6 +710,7 @@ export const languages: Language[] = [
             {
                 title: "4. Structures de Données",
                 description: "Arrays et Objects (équivalent des dictionnaires).",
+                useCase: "Stocker les positions du serpent, gérer les listes de scores.",
                 examples: [
                     {
                         title: "Arrays",
@@ -699,6 +735,7 @@ export const languages: Language[] = [
             {
                 title: "5. Fonctions",
                 description: "Fonctions classiques, fléchées (arrow functions) et anonymes.",
+                useCase: "Créer des fonctions pour déplacer le serpent, vérifier les collisions.",
                 examples: [
                     {
                         title: "Fonction classique",
@@ -732,12 +769,16 @@ export const languages: Language[] = [
             { title: "Channels", content: "Channels allow goroutines to communicate." },
         ],
         youtubeLinks: [
-            { title: "Go Programming - Golang Course", url: "https://www.youtube.com/watch?v=YS4e4q9oBaU" },
+            { title: "Documentation Officielle Go", url: "https://go.dev/doc/" },
+            { title: "Tutoriel Go pour Débutants", url: "https://www.youtube.com/watch?v=YS4e4q9oBaU" },
+            { title: "Apprendre Go avec FreeCodeCamp", url: "https://www.youtube.com/watch?v=YS4e4q9oBaU" },
+            { title: "Cours Complet Go - Programmation", url: "https://www.youtube.com/watch?v=un6ZyFkqFKo" },
         ],
         learningModules: [
             {
                 title: "1. Variables & Types de Données",
                 description: "Go est fortement typé avec une syntaxe concise.",
+                useCase: "Stocker le nom d'un utilisateur, son âge ou le score d'un jeu.",
                 examples: [
                     {
                         title: "Créer des variables",
@@ -786,6 +827,7 @@ export const languages: Language[] = [
             {
                 title: "3. Structures de Contrôle",
                 description: "If, for (Go n'a pas de while !), switch.",
+                useCase: "Créer des boucles de jeu, gérer les conditions de victoire/défaite.",
                 examples: [
                     {
                         title: "Conditions",
@@ -810,6 +852,7 @@ export const languages: Language[] = [
             {
                 title: "4. Structures de Données",
                 description: "Slices (tableaux dynamiques), maps et structs.",
+                useCase: "Stocker les positions du serpent, gérer les listes de scores.",
                 examples: [
                     {
                         title: "Slices",
@@ -834,6 +877,7 @@ export const languages: Language[] = [
             {
                 title: "5. Fonctions",
                 description: "Fonctions avec ou sans retour, multiples retours possibles.",
+                useCase: "Créer des fonctions pour déplacer le serpent, vérifier les collisions.",
                 examples: [
                     {
                         title: "Fonction simple",
