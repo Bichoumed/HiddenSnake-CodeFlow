@@ -23,8 +23,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <GameProvider>
           <div className="flex min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50 text-gray-900">
+            {/* Sidebar - Always visible on all devices */}
             <Sidebar />
-            <div className="flex-1 ml-64">
+            {/* Main content - With margin for sidebar on all devices */}
+            <div className="flex-1 ml-64 w-full">
               <Navbar />
               <GameWrapper>
                 {children}
